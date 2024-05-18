@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Search And Book Appointment Form</title>
+
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body>
+	<th:block th:insert="Header.html"></th:block>
+	<div class="container-fluid">
+
+		<div class="card">
+
+			<div class="card-header bg-primary text-center text-white">
+				<h5>Search And Book Appointment</h5>
+			</div>
+
+			<div class="card-body">
+				<form action="/searchAndBookAppointment" method="post">
+				
+				
+					<div class="row p-2" >
+						<div class="col-4">Patient Name</div>
+						<div class="col-6">
+							<select name="patientname" class="form-control">
+								<option value="">--- Select Patient name ---</option>
+								<option th:each="p : ${pList}" th:value="${p.id}">[[${p.name}]]</option>
+							</select>
+						</div>
+					</div>
+					
+					
+					<div class="row p-2">
+						<div class="col-4">Doctor Specialization</div>
+						<div class="col-6">
+							<select name="specialization" class="form-control">
+								<option value="">--- Select Specialization ---</option>
+								<option th:each= "s: ${sList}" th:value="${s.id}">[[${s.name}]]</option>
+								
+							</select>
+						</div>
+					</div>
+					
+					<div class="row p-2" >
+						<div class="col-4">Doctor</div>
+						<div class="col-6">
+							<select name="doctorname" class="form-control">
+								<option value="">--- Select doctor name ---</option>
+								<option th:each="d : ${dList}" th:value="${d.id}">[[${d.name}]]</option>
+							</select>
+						</div>
+					</div>
+					
+
+					<div class="row p-2">
+						<div class="col-4"></div>
+						<div class="col-6">
+							<input type="submit" value="Search" class="btn btn-success">
+						</div>
+					</div>
+				</form>
+
+			</div>
+			
+			
+
+			<div class="card-footer  bg-warning text-center ">hms@2024</div>
+
+
+		</div>
+
+
+	</div>
+
+
+</body>
+</html>

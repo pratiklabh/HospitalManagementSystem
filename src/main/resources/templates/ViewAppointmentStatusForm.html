@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>View Appointment Status Form</title>
+
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body>
+	<th:block th:insert="Header.html"></th:block>
+	<div class="container-fluid">
+
+		<div class="card">
+
+			<div class="card-header bg-primary text-center text-white">
+				<h5>View Appointment Status </h5>
+			</div>
+
+			<div class="card-body">
+
+				<table class="table">
+
+					<thead>
+						<tr>
+							<th>Appointment Date</th>
+							<th>Patient name</th>
+							<th>Doctor name</th>
+							<th>Status</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+
+					<tbody>
+						<tr th:each="a:${aList}">
+							<td>[[${a.date}]]</td>
+							<td>[[${a.patientname}]]</td>
+							<td>[[${a.doctorname}]]</td>
+							
+							<td th:text="${a.isApproved ? 'Accepted' : 'Pending'}"
+								th:style="'color:' + (${a.isApproved ? 'green' : 'red'})"></td>
+							
+							<td><a th:href="@{/appointment/delete(id=${a.id})}"> <input
+									type="submit" value="delete" class="btn btn-danger">
+							</a></td>
+
+						</tr>
+					</tbody>
+
+				</table>
+
+
+
+			</div>
+
+			<div class="card-footer  bg-warning text-center ">hms@2024</div>
+
+
+		</div>
+
+
+	</div>
+
+
+</body>
+</html>

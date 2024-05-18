@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Doctor List Form</title>
+
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body>
+	<th:block th:insert="Header.html"></th:block>
+	<div class="container-fluid">
+
+		<div class="card">
+
+			<div class="card-header bg-primary text-center text-white">
+				<h5>Doctor Details</h5>
+			</div>
+
+			<div class="card-body" th:each="d : ${doctor_details}">
+				<form action="/doctorList" method="post">
+					<div class="row p-2">
+						<div class="col-2">Doctor Name</div>
+						<div class="col-6">
+							<p class="form-control">
+								<span th:text="${d.name}"></span>
+							</p>
+						</div>
+					</div>
+
+					<div class="row p-2">
+						<div class="col-2">Doctor Email</div>
+						<div class="col-6">
+							<p class="form-control">
+								<span th:text="${d.email}"></span>
+							</p>
+						</div>
+					</div>
+
+					<div class="row p-2">
+						<div class="col-2">Doctor Address</div>
+						<div class="col-6">
+							<p class="form-control">
+								<span th:text="${d.address}"></span>
+							</p>
+						</div>
+					</div>
+
+					<div class="row p-2">
+						<div class="col-2">Doctor Specialization</div>
+						<div class="col-6">
+							<p class="form-control">
+								<span th:text="${d.specialization.name}"></span>
+							</p>
+						</div>
+					</div>
+
+					<div class="row p-2">
+						<div class="col-2">Doctor Phone number</div>
+						<div class="col-6">
+							<p class="form-control">
+								<span th:text="${d.mobile}"></span>
+							</p>
+						</div>
+					</div>
+
+					<div class="row p-2">
+						<div class="col-2">Doctor Gender</div>
+						<div class="col-6">
+							<p class="form-control">
+								<span th:text="${d.gender}"></span>
+							</p>
+						</div>
+					</div>
+
+					<div class="row p-2">
+						<div class="col-2">Doctor Note</div>
+						<div class="col-6">
+							<p class="form-control">
+								<span th:text="${d.note}"></span>
+							</p>
+						</div>
+					</div>
+
+					<div class="row p-2">
+						<div class="col-4"></div>
+						<div class="col-6">
+							<input type="submit" value="Back" class="btn btn-success">
+						</div>
+					</div>
+				</form>
+
+			</div>
+
+			<div class="card-footer  bg-warning text-center ">hms@2024</div>
+
+
+		</div>
+
+
+	</div>
+
+
+</body>
+</html>

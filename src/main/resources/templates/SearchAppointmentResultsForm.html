@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Search and Make Appointment Form</title>
+
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body>
+	<th:block th:insert="Header.html"></th:block>
+	<div class="container-fluid">
+
+		<div class="card">
+
+			<div class="card-header bg-primary text-center text-white">
+				<h5>Search And Book Appointment</h5>
+			</div>
+
+			<div class="card-body">
+				<form action="/appointment" method="post">
+			
+					<div class="row p-2">
+						<div class="col-4">Patient Name</div>
+						<div class="col-6">
+							<input type="text" name="patientname" class="form-control"
+								th:value="${patientname}" readonly>
+						</div>
+					</div>
+
+					<div class="row p-2">
+						<div class="col-4">Doctor Specialization</div>
+						<div class="col-6">
+							<input type="text" name="specialization" class="form-control"
+								th:value="${specialization.name}" readonly>
+
+						</div>
+					</div>
+
+					<div class="row p-2">
+						<div class="col-4">Doctor name</div>
+						<div class="col-6">
+							<input type="text" name="doctorname" class="form-control"
+								th:value="${doctorname}" readonly>
+						</div>
+					</div>
+
+					<div class="row p-2">
+						<div class="col-4">Doctor Mobile Number</div>
+						<div class="col-6">
+							<input type="text" name="mobile" class="form-control"
+								th:value="${mobile}" readonly>
+						</div>
+					</div>
+					
+					<div class="row p-2">
+						<div class="col-4">Available no. of Slots</div>
+						<div class="col-6">
+							<input type="text" name="slots" class="form-control"
+								th:value="${availableSlots}" readonly>
+						</div>
+					</div>
+					
+					<div class="row p-2">
+
+						<div class="col-4">Date</div>
+						<div class="col-6">
+							<input type="date" name="date" class="form-control">
+						</div>
+
+					</div>
+
+
+					<div class="row p-2">
+						<div class="col-4">Consultation Fee</div>
+						<div class="col-6">
+							<input type="text" name="fee" class="form-control" value="825"
+								readonly>
+						</div>
+					</div>
+
+
+					<div class="row p-2">
+						<div class="col-4">Details</div>
+						<div class="col-6">
+
+							<textarea name="details" rows="4" cols="95"></textarea>
+
+						</div>
+					</div>
+					
+
+
+					<div class="row p-2">
+						<div class="col-4"></div>
+						<div class="col-6">
+							<input type="submit" value="Book" class="btn btn-success">
+						</div>
+					</div>
+				</form>
+
+
+
+			</div>
+
+
+
+			<div class="card-footer  bg-warning text-center ">hms@2024</div>
+
+
+		</div>
+
+
+	</div>
+
+</body>
+</html>

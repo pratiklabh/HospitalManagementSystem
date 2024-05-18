@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title> </title>
+</head>
+<body>
+
+	<th:block th:insert= "~{Header.html}"></th:block>
+	 <div th:if="${errorMessage}" class="alert alert-danger" role="alert" th:text="${errorMessage}"></div>
+	
+
+</body>
+</html>

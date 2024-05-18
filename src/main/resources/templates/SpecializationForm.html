@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Specialization</title>
+
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body>
+	<th:block th:insert="Header.html"></th:block>
+	<div class="container-fluid">
+
+		<div class="card">
+
+			<div class="card-header bg-primary text-center text-white">
+				<h5>Specialization Details</h5>
+			</div>
+
+			<div class="card-body">
+				<form action="/specialization" method="post">
+					<div class="row p-2">
+						<div class="col-4">Specialization Code</div>
+						<div class="col-6">
+							<input type="text" name="code" class="form-control">
+						</div>
+					</div>
+
+
+					<div class="row p-2">
+						<div class="col-4">Specialization Name</div>
+						<div class="col-6">
+							<select name="name" class="form-control">
+								<option value="">--- Select Specialization ---</option>
+								<option value="Cardiology">Cardiology</option>
+								<option value="Dermatology">Dermatology</option>
+								<option value="Neurology">Neurology</option>
+								<option value="Pediatrics">Pediatrics</option>
+								<option value="Orthopedics">Orthopedics</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="row p-2">
+						<div class="col-4">Note</div>
+						<div class="col-6">
+							<textarea name="note" rows="4" cols="95"></textarea>
+						</div>
+					</div>
+
+					<div class="row p-2">
+						<div class="col-4"></div>
+						<div class="col-6">
+							<input type="submit" value="Add" class="btn btn-success">
+						</div>
+					</div>
+				</form>
+				<div th:if="${error}" th:text="${error}" style="color: red;"></div>
+				<div th:if="${success}" th:text="${success}" style="color: green;"></div>
+			</div>
+
+			<div class="card-footer  bg-warning text-center ">hms@2024</div>
+
+
+		</div>
+
+
+	</div>
+
+
+</body>
+</html>

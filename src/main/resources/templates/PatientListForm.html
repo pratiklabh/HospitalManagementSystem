@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Patient List Form</title>
+
+
+
+</head>
+<body>
+	<th:block th:insert="Header.html"></th:block>
+	<div class="container-fluid">
+
+		<div class="card">
+
+			<div class="card-header bg-primary text-center text-white">
+				<h5>Patient List</h5>
+			</div>
+
+			<div class="card-body">
+
+
+				<div class="p-2">
+					
+					<a href="/patient/excel"> <input type="submit" value="Excel" class="btn btn-success"></a>
+					<a href="/patient/pdf">   <input type="submit" value="PDF" class="btn btn-primary"></a>
+									
+				</div>
+				
+				
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Patient Name</th>
+							<th>Patient's dob</th>
+							<th>Patient's phone</th>
+						</tr>
+					</thead>
+
+					<tbody>
+						<tr th:each="p:${pList}">
+							<td >[[${p.name}]]</td>
+							<td >[[${p.dob}]]</td>
+							<td >[[${p.phone}]]</td>
+							
+							
+							<td><a th:href="@{/patient/edit(id=${p.id})}"><input
+									type="submit" value="Edit" class="btn btn-success"></a> <a
+								th:href="@{/patient/details(id=${p.id})}"><input
+									type="submit" value="View Details" class="btn btn-warning"></a>
+								<a th:href="@{/patient/delete(id=${p.id})}"><input
+									type="submit" value="Delete" class="btn btn-danger"> </a></td>
+							
+							
+							
+													
+						</tr>
+					</tbody>
+
+				</table>
+
+			</div>
+
+			<div class="card-footer  bg-warning text-center ">hms@2024</div>
+
+
+		</div>
+
+
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Patient edit form</title>
+
+
+</head>
+<body>
+	<th:block th:insert="Header.html"></th:block>
+	<div class="container-fluid">
+
+		<div class="card">
+
+			<div class="card-header bg-primary text-center text-white">
+				<h5>Patient Edit Form</h5>
+			</div>
+
+			<div class="card-body">
+				<form action="/patient/update" method="post" th:object=${pModel}>
+					<div class="row p-2">
+						<div class="col-4">Name</div>
+						<div class="col-6">
+							<input type="text" th:field="*{name}" class="form-control">
+						</div>
+					</div>
+					
+					<div class="row p-2">
+						<div class="col-4"> Email</div>
+						<div class="col-6">
+							<input type="email" th:field="*{email}" class="form-control">							
+						</div>
+					</div>
+					
+					<div class="row p-2">
+						<div class="col-4"> Password</div>
+						<div class="col-6">
+							<input type="password" th:field="*{password}" class="form-control">
+							
+						</div>
+					</div>
+
+					<div class="row p-2">
+						<div class="col-4">Phone</div>
+						<div class="col-6">
+							<input type="text" th:field="*{phone}" class="form-control">
+						</div>
+					</div>
+
+					<div class="row p-2">
+
+						<div class="col-4">Gender</div>
+						<div class="col-6">
+							<input type="radio" th:field="*{gender}" value="male">Male 
+							<input type="radio" th:field="*{gender}" value="female">Female
+						</div>
+
+					</div>
+					
+					<div class="row p-2">
+
+						<div class="col-4">DoB</div>
+						<div class="col-6">
+							<input type="date" th:field="*{dob}" class="form-control">
+						</div>
+
+					</div>
+					
+					
+					
+					
+					<div class="row p-2">
+
+						<div class="col-4">Marital Status</div>
+						<div class="col-6">
+							<input type="radio" th:field="*{martialstatus}" value="Single">Single 
+							<input type="radio" th:field="*{martialstatus}" value="Married">Married
+							<input type="radio" th:field="*{martialstatus}" value="Divorced">Divorced
+						</div>
+
+					</div>
+
+					
+
+					<div class="row p-2">
+
+						<div class="col-4">Country</div>
+						<div class="col-6">
+							<input type="text" th:field="*{address.country}" class="form-control">
+						</div>
+
+					</div>
+					
+					<div class="row p-2">
+						<div class="col-4">State</div>
+						<div class="col-6">
+							<select th:field="*{address.state}" class="form-control">
+								<option value="">Select</option>
+								<option value="state-1">State-1</option>
+								<option value="state-2">State-2</option>
+								<option value="state-3">State-3</option>
+								<option value="state-4">State-4</option>
+								<option value="state-5">State-5</option>
+								<option value="state-6">State-6</option>
+								<option value="state-7">State-7</option>
+							</select>
+						</div>
+					</div>
+					
+
+					<div class="row p-2">
+						<div class="col-4">City</div>
+						<div class="col-6">
+							<input type="text" th:field="*{address.city}" class="form-control">
+						</div>
+					</div>
+
+					
+
+					<div class="row p-2">
+						<div class="col-4">ZipCode</div>
+						<div class="col-6">
+							<input type="text" th:field="*{address.zipcode}" class="form-control">
+						</div>
+					</div>
+					
+					
+					<div class="row p-2">
+						<div class="col-4">Doctor</div>
+						<div class="col-6">
+							<select th:field="*{doctor}" class="form-control">
+								<option value="">Select</option>
+								<option th:each="d : ${dList}" th:value="${d.id}">[[${d.name}]]</option>
+							</select>
+						</div>
+					</div>
+					
+					
+					<div class="row p-2">
+
+						<div class="col-4">Past Medical History</div>
+						<div class="col-6">
+							<input type="checkbox" th:field="*{medicalhistory}" value="Anemia"> 	Anemia
+							<input type="checkbox" th:field="*{medicalhistory}" value="Asthma">	Asthma
+							<input type="checkbox" th:field="*{medicalhistory}" value="Diabetes">	Diabetes
+							<input type="checkbox" th:field="*{medicalhistory}" value="Cancer">	Cancer
+							<input type="checkbox" th:field="*{medicalhistory}" value="Ulcer">		Ulcer
+							<br>
+							
+								
+						</div>
+
+					</div>
+				
+
+					<div class="row p-2">
+						<div class="col-4"> Other Details</div>
+						<div class="col-6">
+							<textarea th:field="*{otherdetails}" rows="4" cols="95"></textarea>
+						</div>
+					</div>
+
+					<div class="row p-2">
+						<div class="col-4"></div>
+						<div class="col-6">
+							<input type="submit" value="Update" class="btn btn-success">
+						</div>
+					</div>
+					<input type="hidden" th:field="*{id}">
+				</form>
+
+			</div>
+
+			<div class="card-footer  bg-warning text-center ">hms@2024</div>
+
+
+		</div>
+
+
+	</div>
+
+
+</body>
+</html>

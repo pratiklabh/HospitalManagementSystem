@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Doctor List Form</title>
+
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body>
+	<th:block th:insert="Header.html"></th:block>
+	<div class="container-fluid">
+
+		<div class="card">
+
+			<div class="card-header bg-primary text-center text-white">
+				<h5>Doctor List</h5>
+			</div>
+
+			<div class="card-body">
+
+				
+				<div class="p-2">
+					
+						<a href="/doctor/excel"> <input type="submit" value="Excel" class="btn btn-success"></a>
+						<a href="/doctor/pdf">   <input type="submit" value="PDF" class="btn btn-primary"></a>
+
+				</div>
+				
+
+				<table class="table">
+
+					<thead>
+						<tr>
+							<th>Doctor Name</th>
+							<th>Doctor Email</th>
+							<th>Doctor Specialization</th>
+						</tr>
+					</thead>
+
+					<tbody>
+						<tr th:each="d:${dList}">
+							<td>[[${d.name}]]</td>
+							<td>[[${d.email}]]</td>
+							<td>[[${d.specialization.name}]]</td>
+							<td><a th:href="@{/doctor/edit(id=${d.id})}"><input
+									type="submit" value="Edit" class="btn btn-success"></a> <a
+								th:href="@{/doctor/details(id=${d.id})}"><input
+									type="submit" value="View Details" class="btn btn-warning"></a>
+								<a th:href="@{/doctor/delete(id=${d.id})}"><input
+									type="submit" value="Delete" class="btn btn-danger"></a></td>
+
+						</tr>
+					</tbody>
+
+				</table>
+
+			</div>
+
+			<div class="card-footer  bg-warning text-center ">hms@2024</div>
+
+
+		</div>
+
+
+	</div>
+
+</body>
+</html>

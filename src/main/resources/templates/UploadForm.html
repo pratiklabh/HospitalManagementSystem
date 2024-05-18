@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Doctor</title>
+
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body>
+	<th:block th:insert="Header.html"></th:block>
+	<div class="container-fluid">
+
+		<div class="card">
+
+			<div class="card-header bg-primary text-center text-white">
+				<h5>Upload into Gallery</h5>
+			</div>
+
+			<div class="card-body">
+				<form action="/upload" method="post" enctype="multipart/form-data">
+					<div class="row p-2">
+						<div class="col-4">Select</div>
+						<div class="col-6">
+							<input type="file" name="image" class="form-control">
+						</div>
+					</div>
+
+
+					<div class="row p-2">
+						<div class="col-4"></div>
+						<div class="col-6">
+							<input type="submit" value="upload" class="btn btn-success">
+						</div>
+					</div>
+				</form>
+				<p>[[${message}]]</p>
+
+			</div>
+
+			<div class="card-footer  bg-warning text-center ">hms@2024</div>
+
+
+		</div>
+
+
+	</div>
+
+
+</body>
+</html>

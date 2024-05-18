@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Patient List Form</title>
+
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body>
+	<th:block th:insert="Header.html"></th:block>
+	<div class="container-fluid">
+
+		<div class="card">
+
+			<div class="card-header bg-primary text-center text-white">
+				<h5>Patient Details</h5>
+			</div>
+
+			<div class="card-body" th:each="p : ${patient_details}">
+				<form action="/patientList" method="post">
+					<div class="row p-2">
+						<div class="col-2">Patient Name</div>
+						<div class="col-6">
+							<p class="form-control">
+								<span th:text="${p.name}"></span>
+							</p>
+						</div>
+					</div>
+					
+					<div class="row p-2">
+						<div class="col-2"> Patient Email</div>
+						<div class="col-6">
+							<p class="form-control">
+								<span th:text="${p.email}"></span>
+							</p>
+						</div>
+					</div>
+				
+
+					<div class="row p-2">
+						<div class="col-2">Patient Phone number</div>
+						<div class="col-6">
+							<p class="form-control">
+								<span th:text="${p.phone}"></span>
+							</p>
+						</div>
+					</div>
+					
+					<div class="row p-2">
+						<div class="col-2">Patient Gender</div>
+						<div class="col-6">
+							<p class="form-control">
+								<span th:text="${p.gender}"></span>
+							</p>
+						</div>
+					</div>
+					
+					<div class="row p-2">
+						<div class="col-2">Patient dob</div>
+						<div class="col-6">
+							<p class="form-control">
+								<span th:text="${p.dob}"></span>
+							</p>
+						</div>
+					</div>
+					
+					<div class="row p-2">
+						<div class="col-2">Patient Marital Status</div>
+						<div class="col-6">
+							<p class="form-control">
+								<span th:text="${p.martialstatus}"></span>
+							</p>
+						</div>
+					</div>
+					
+
+					<div class="row p-2">
+						<div class="col-2">Patient Address (Country)</div>
+						<div class="col-6">
+							<p class="form-control">
+								<span th:text="${p.address.country}"></span>
+							</p>
+						</div>
+					</div>
+					
+					<div class="row p-2">
+						<div class="col-2">Patient Address(State)</div>
+						<div class="col-6">
+							<p class="form-control">
+								<span th:text="${p.address.state}"></span>
+							</p>
+						</div>
+					</div>
+					
+					<div class="row p-2">
+						<div class="col-2">Patient Address(City)</div>
+						<div class="col-6">
+							<p class="form-control">
+								<span th:text="${p.address.city}"></span>
+							</p>
+						</div>
+					</div>
+					
+					<div class="row p-2">
+						<div class="col-2">Patient Address(zipcode)</div>
+						<div class="col-6">
+							<p class="form-control">
+								<span th:text="${p.address.zipcode}"></span>
+							</p>
+						</div>
+					</div>
+
+					
+					<div class="row p-2">
+						<div class="col-2">Patient Doctor Name</div>
+						<div class="col-6">
+							<p class="form-control">
+								<span th:text="${p.doctor}"></span>
+							</p>
+						</div>
+					</div>
+					
+					<div class="row p-2">
+						<div class="col-2">Past Medical History</div>
+						<div class="col-6">
+							<p class="form-control">
+								<span th:text="${p.medicalhistory}"></span>
+							</p>
+						</div>
+					</div>
+					
+
+					<div class="row p-2">
+						<div class="col-2">Patient other details</div>
+						<div class="col-6">
+							<p class="form-control">
+								<span th:text="${p.otherdetails}"></span>
+							</p>
+						</div>
+					</div>
+
+					<div class="row p-2">
+						<div class="col-4"></div>
+						<div class="col-6">
+							<input type="submit" value="Back" class="btn btn-success">
+						</div>
+					</div>
+				</form>
+
+			</div>
+
+			<div class="card-footer  bg-warning text-center ">hms@2024</div>
+
+
+		</div>
+
+
+	</div>
+
+
+</body>
+</html>

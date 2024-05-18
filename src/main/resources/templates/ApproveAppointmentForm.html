@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Approve Appointment</title>
+
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body>
+	<th:block th:insert="Header.html"></th:block>
+	<div class="container-fluid">
+
+		<div class="card">
+
+			<div class="card-header bg-primary text-center text-white">
+				<h5>Approve Appointment</h5>
+			</div>
+
+			<div class="card-body">
+			
+				<table class="table">
+					
+					<thead>
+						<tr>
+							<th> ID </th>
+							<th> Appointment Date </th>
+							<th> Patient name </th>
+							<th> Doctor name </th>
+							<th> Status </th>
+							<th> Actions </th>
+						</tr>
+					</thead>
+					
+					<tbody>
+						<tr th:each="a:${aList}">
+							<td> [[${a.id}]] </td>
+							<td> [[${a.date}]] </td>
+							<td> [[${a.patientname}]] </td>
+							<td> [[${a.doctorname}]] </td>
+							<td th:text="${a.isApproved ? 'Accepted' : 'Pending'}"></td>
+							<td>
+								<form th:action="@{/acceptAppointment}" method="post">
+									<input type="hidden" name="id" th:value="${a.id}">
+									<button type="submit" class="btn btn-success">Accept</button>
+								</form>
+								<br>
+								<form th:action="@{/rejectAppointment}" method="post">
+									<input type="hidden" name="id" th:value="${a.id}">
+									<button type="submit" class="btn btn-danger">Reject</button>
+								</form>
+
+							</td>
+						</tr>
+					</tbody>
+					
+				</table>
+				
+				
+
+			</div>
+
+			<div class="card-footer  bg-warning text-center ">hms@2024</div>
+
+
+		</div>
+
+
+	</div>
+
+
+</body>
+</html>
