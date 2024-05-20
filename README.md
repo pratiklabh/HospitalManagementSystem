@@ -12,5 +12,5 @@ an admin can perform the following tasks:
 - upload new pictures to gallery
 - send an email to any email through the contact option
 
-Doctor can view, approve  and reject appointments, view gallery.
+Doctor can view, approve  and reject appointments, view gallery. <br>
 Patients can book appointments , view appointment status, view gallery
